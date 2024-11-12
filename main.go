@@ -45,8 +45,17 @@ func main() {
 		grid.Add(row)
 	}
 
-	sudokuWin.SetContent(grid)
+	solveButton := widget.NewButton("Solve", func() {
+		solveSudoku(entries)
+	})
+
+	content := container.NewVBox(grid, solveButton)
+
+	sudokuWin.SetContent(content)
 	sudokuWin.Resize(fyne.NewSize(400, 400))
 	sudokuWin.CenterOnScreen()
 	sudokuWin.ShowAndRun()
+}
+
+func solveSudoku(entries []*widget.Entry) {
 }
